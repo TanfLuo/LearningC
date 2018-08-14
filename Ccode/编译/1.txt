@@ -1,0 +1,8 @@
+1.txt
+a.exe
+a.out
+hello.c
+hello.i
+hello.o
+hello.s
+hello_1.s

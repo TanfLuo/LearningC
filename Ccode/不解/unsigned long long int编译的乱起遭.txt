@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+//这个gcc编译的时候为什么输出错位
+inline unsigned long long GetNTime()
+{
+	__asm ("RDTSC");
+}
+
+
+int main(void)
+{
+	unsigned long long a = 12;
+	unsigned long long n = 100;
+	unsigned long long m = n;
+	printf("%p\n%p\n", &m,&n);
+	//printf("%p\n%p", &m, &n);
+	//scanf("%d %d", &a, &n);
+	unsigned long long result_n_a_mul = 1;
+	unsigned long long time1_nanosec_end, time_naosec_start;
+	 
+	
+	 
+	
+	
+	time_naosec_start = GetNTime();
+	while (n)
+	{
+		result_n_a_mul *= a;
+		n -= 1;
+	}
+	time1_nanosec_end = GetNTime();
+	printf("m = %u\nn = %u\n", m, n);
+         //这个gcc编译的时候为什么输出错位
+	printf("%u的%u次方等于：%u\n", a,m,result_n_a_mul);
+	printf("%u纳秒\n", (time1_nanosec_end - time_naosec_start) * 5 / 9);
+	printf("%u毫秒\n", (time1_nanosec_end - time_naosec_start) * 5 / 9 / 1000000);
+	return 0;
+}
